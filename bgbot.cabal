@@ -25,6 +25,9 @@ source-repository head
 
 library
   exposed-modules:
+      Board
+      Bot
+      Game
       Lib
   other-modules:
       Paths_bgbot
@@ -34,7 +37,16 @@ library
       src
   ghc-options: -Wall -Wcompat -Widentities -Wincomplete-record-updates -Wincomplete-uni-patterns -Wmissing-export-lists -Wmissing-home-modules -Wpartial-fields -Wredundant-constraints
   build-depends:
-      base >=4.7 && <5
+      QuickCheck
+    , array
+    , async
+    , base >=4.7 && <5
+    , deepseq
+    , extra
+    , hspec
+    , parallel
+    , random
+    , vector
   default-language: Haskell2010
 
 executable bgbot-exe
@@ -45,10 +57,19 @@ executable bgbot-exe
       Paths_bgbot
   hs-source-dirs:
       app
-  ghc-options: -Wall -Wcompat -Widentities -Wincomplete-record-updates -Wincomplete-uni-patterns -Wmissing-export-lists -Wmissing-home-modules -Wpartial-fields -Wredundant-constraints -threaded -rtsopts -with-rtsopts=-N
+  ghc-options: -Wall -Wcompat -Widentities -Wincomplete-record-updates -Wincomplete-uni-patterns -Wmissing-export-lists -Wmissing-home-modules -Wpartial-fields -Wredundant-constraints -threaded -rtsopts -with-rtsopts=-N -O2
   build-depends:
-      base >=4.7 && <5
+      QuickCheck
+    , array
+    , async
+    , base >=4.7 && <5
     , bgbot
+    , deepseq
+    , extra
+    , hspec
+    , parallel
+    , random
+    , vector
   default-language: Haskell2010
 
 test-suite bgbot-test
@@ -62,6 +83,15 @@ test-suite bgbot-test
       test
   ghc-options: -Wall -Wcompat -Widentities -Wincomplete-record-updates -Wincomplete-uni-patterns -Wmissing-export-lists -Wmissing-home-modules -Wpartial-fields -Wredundant-constraints -threaded -rtsopts -with-rtsopts=-N
   build-depends:
-      base >=4.7 && <5
+      QuickCheck
+    , array
+    , async
+    , base >=4.7 && <5
     , bgbot
+    , deepseq
+    , extra
+    , hspec
+    , parallel
+    , random
+    , vector
   default-language: Haskell2010

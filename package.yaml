@@ -21,6 +21,15 @@ description:         Please see the README on GitHub at <https://github.com/gith
 
 dependencies:
 - base >= 4.7 && < 5
+- array
+- extra
+- random
+- vector
+- hspec
+- QuickCheck
+- parallel
+- deepseq
+- async
 
 ghc-options:
 - -Wall
@@ -44,6 +53,7 @@ executables:
     - -threaded
     - -rtsopts
     - -with-rtsopts=-N
+    - -O2
     dependencies:
     - bgbot
 
@@ -57,3 +67,5 @@ tests:
     - -with-rtsopts=-N
     dependencies:
     - bgbot
+    - hspec
+    - QuickCheck
