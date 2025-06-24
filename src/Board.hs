@@ -52,9 +52,7 @@ rollDice :: IO (Die, Die)
 rollDice = do
   n <- (+ 1) . (`mod` 6) <$> randomIO
   m <- (+ 1) . (`mod` 6) <$> randomIO
-  if m /= n
-    then return (Die n, Die m)
-    else rollDice
+  return (Die n, Die m)
 
 possibleMoves :: State -> [[Move]]
 possibleMoves (State b (Die d1, Die d2) p) =
